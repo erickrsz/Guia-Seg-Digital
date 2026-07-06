@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quiz Interativo - Segurança Digital</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* Botão de Voltar Fixo no Topo */
+    .btn-back {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 16px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.04);
+      color: var(--muted);
+      font-weight: 500;
+      transition: .2s ease;
+      z-index: 100;
+    }
+    .btn-back:hover {
+      color: var(--text);
+      border-color: var(--primary);
+      background: rgba(255,255,255,0.08);
+      transform: translateY(-1px);
+    }
+
+    /* Estilos da tela cheia do Quiz */
+    .quiz-fullscreen {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 24px;
+      box-sizing: border-box;
+    }
+    .quiz-box {
+      width: 100%;
+      max-width: 850px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 50px;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+      backdrop-filter: blur(8px);
+    }
+    .quiz-box h2 {
+      font-size: 2.3rem;
+      margin: 0 0 35px 0;
+      line-height: 1.4;
+      text-align: center;
+    }
+    .quiz-large-options {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .quiz-large-btn {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 22px 28px;
+      border-radius: 16px;
+      cursor: pointer;
+      text-align: left;
+      font-size: 1.35rem;
+      transition: all 0.2s ease;
+      font-family: inherit;
+      line-height: 1.4;
+    }
+    .quiz-large-btn:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: var(--primary);
+      transform: scale(1.01) translateX(6px);
+    }
+    .quiz-large-btn:disabled {
+      cursor: not-allowed;
+      transform: none;
+    }
+    .quiz-large-btn.correct {
+      background: #19a55f !important;
+      border-color: #40c878 !important;
+      color: #fff !important;
+      font-weight: bold;
+    }
+    .quiz-large-btn.wrong {
+      background: #b82a44 !important;
+      border-color: #ff57ab !important;
+      color: #fff !important;
+      font-weight: bold;
+    }
+    .result-container {
+      text-align: center;
+    }
+    .result-score {
+      font-size: 4rem;
+      color: var(--primary);
+      margin-bottom: 10px;
+      font-weight: 800;
+    }
+    .result-message {
+      font-size: 1.6rem;
+      color: var(--muted);
+      margin-bottom: 35px;
+      line-height: 1.5;
+    }
+    .result-actions {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+  </style>
+</head>
+<body>
+
+  <a href="index.html" class="btn-back">⬅ Voltar para o Início</a>
+
+  <main class="quiz-fullscreen">
+    <div id="quiz-box" class="quiz-box">
+      </div>
+  </main>
+
+  <script src="quiz.js"></script>
+</body>
+</html>
